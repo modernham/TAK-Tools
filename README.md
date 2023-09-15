@@ -20,7 +20,7 @@ apt-get install wget
 **Run as the root:**
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh)
+wget https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh ; chmod +x takinstall.sh ; ./takinstall.sh
 ```
 
 ## Acknowledgements
