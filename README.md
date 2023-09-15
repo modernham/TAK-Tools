@@ -13,8 +13,9 @@ wget Installed
 
 Running Debian or Ubuntu
 
-If you are confused about that, you can isntall wget, and create a user with (running as root):
+If you are confused about that, you can install wget, and create a user with (running as root):
 ```bash
+su -
 adduser DESIREDUSERNAME
 apt-get install wget
 ```
@@ -24,6 +25,9 @@ apt-get install wget
 ```bash
 wget https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh ; chmod +x takinstall.sh ; ./takinstall.sh
 ```
+
+See it in action:
+https://youtu.be/gDbholYjQHg
 
 ## Acknowledgements
 
