@@ -77,5 +77,5 @@ sudo chmod 777 /home/${usr}/certs/*
 printf $success "\nYou can now obtain your certs from /home/${usr}/certs \n"
 printf $info "\nDo this easily from windows by issuing this command from the folder you'd like the certs in: \n"
 printf $warning "scp ${usr}@${ip4}:~/certs/* . \n"
-printf $info "CREDITS TO @FarrantAlex on github for the Cloud-RF tak-server docker install portion!\n"
+printf $info "CREDITS TO Cloud-RF on github for the tak-server docker install portion!\n"
 printf $info "https://github.com/Cloud-RF/tak-server!\n"
