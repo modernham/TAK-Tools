@@ -11,6 +11,8 @@ color danger 91m
 printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
+  wget https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
+  wget -P /home/$usr/ https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
   cp $(basename "$0") /home/$usr
   chmod +x /home/$usr/$(basename $BASH_SOURCE)
   chmod 777 /home/$usr/$(basename $BASH_SOURCE)
