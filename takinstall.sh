@@ -65,6 +65,7 @@ ip4=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
 printf $danger "\nPlease transfer your TAKSERVER-DOCKER-X.X-RELEASE ZIP file to the newly made tak-server folder \n"
 printf $info "You can do this from windows by using using the following command in a cmd/powershell in the same folder as your ZIP \n"
 printf $warning "scp takserver-docker-4.9-RELEASE-46.zip ${usr}@${ip4}:~/tak-server\n"
+printf $danger "You will get validation errors on the zip, its safe to ignore them\n";
 printf $info "\nPress enter to continue ONLY when you have the zip in /home/${usr}/tak-server\n"
 read ans
 sudo chmod +x scripts/setup.sh
@@ -78,5 +79,3 @@ sudo chmod 777 /home/${usr}/certs/*
 printf $success "\nYou can now obtain your certs from /home/${usr}/certs \n"
 printf $info "\nDo this easily from windows by issuing this command from the folder you'd like the certs in: \n"
 printf $warning "scp ${usr}@${ip4}:~/certs/* . \n"
-printf $info "CREDITS TO Cloud-RF on github for the tak-server docker install portion!\n"
-printf $info "https://github.com/Cloud-RF/tak-server!\n"
