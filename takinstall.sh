@@ -11,6 +11,7 @@ color danger 91m
 printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
+  export PATH=$PATH:/sbin
   apt-get update -y
   apt-get install sudo -y
   cp takinstall.sh /home/$usr/
@@ -30,7 +31,6 @@ if [ $UID -eq 0 ]; then
   apt-get install net-tools -y
   sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
   printf $info "Adding path for ifconfig needed later...\n";
-  export PATH=$PATH:/sbin
   printf $info "Installing Docker\n";
   curl -fsSL https://get.docker.com -o get-docker.sh
   sh get-docker.sh
