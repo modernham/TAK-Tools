@@ -8,8 +8,8 @@ A (future) collection of tools and scripts for the purpose of automating the ins
 **Prerequisites**
 
 -A regular non-root user created
-
 -wget Installed
+-Running Debian or Ubuntu
 
 If you are confused about that, you can isntall wget, and create a user with (running as root):
 ```bash
