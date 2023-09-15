@@ -25,7 +25,7 @@ if [ $UID -eq 0 ]; then
   printf $success "User ${usr} added to Docker group\n";
   printf $success "Switching to: ${usr}\n";
   printf $info "\nInstalling needed tools, and enabling SSH\n";
-  sudo apt install openssh-server git unzip zip net-tools -y
+  sudo apt install openssh-server git unzip zip net-tools python3 -y
   sudo service ssh start
   sudo service ssh enable
   apt-get install net-tools -y
@@ -39,12 +39,14 @@ if [ $UID -eq 0 ]; then
   printf $success "Docker Enabled!\n";
   printf $info "Opening Ports, some of these will fail, it is okay\n";
   sudo ufw allow 5432/tcp
+  sudo ufw allow 80/tcp
   sudo ufw allow 8089/tcp
   sudo ufw allow 8443/tcp
   sudo ufw allow 8446/tcp
   sudo ufw allow 9000/tcp
   sudo ufw allow 9001/tcp
   sudo iptables -I INPUT -p tcp --dport 5432 -j ACCEPT
+  sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT
   sudo iptables -I INPUT -p tcp --dport 8089 -j ACCEPT
   sudo iptables -I INPUT -p tcp --dport 8443 -j ACCEPT
   sudo iptables -I INPUT -p tcp --dport 8446 -j ACCEPT
@@ -79,3 +81,7 @@ sudo chmod 777 /home/${usr}/certs/*
 printf $success "\nYou can now obtain your certs from /home/${usr}/certs \n"
 printf $info "\nDo this easily from windows by issuing this command from the folder you'd like the certs in: \n"
 printf $warning "scp ${usr}@${ip4}:~/certs/* . \n"
+printf $info "\nYou may also download them from your webrowser at: \n"
+printf $warning "http://${ip4}/ \n"
+printf $danger "Press CTRL+C to close this script and the webserver\n";
+python3 -m http.server 80 -d /home/${usr}/certs
