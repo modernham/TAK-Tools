@@ -12,6 +12,7 @@ printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
   apt-get update -y
+  apt-get install sudo -y
   cp takinstall.sh /home/$usr/
   chmod +x /home/$usr/takinstall.sh
   chmod 777 /home/$usr/takinstall.sh
@@ -23,7 +24,6 @@ if [ $UID -eq 0 ]; then
   printf $success "User ${usr} added to Docker group\n";
   printf $success "Switching to: ${usr}\n";
   printf $info "\nInstalling needed tools, and enabling SSH\n";
-  apt-get install sudo -y
   sudo apt install openssh-server git unzip zip net-tools -y
   sudo service ssh start
   sudo service ssh enable
