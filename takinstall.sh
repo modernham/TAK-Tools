@@ -18,11 +18,12 @@ if [ $UID -eq 0 ]; then
   printf $success "User ${usr} added to sudoers\n";
   printf $info "Adding docker group\n";
   groupadd docker
-  sudo usermod -aG docker ${usr}
+  usermod -aG docker ${usr}
   printf $success "User ${usr} added to Docker group\n";
   printf $success "Switching to: ${usr}\n";
   printf $info "\nInstalling needed tools, and enabling SSH\n";
-  sudo aptget update -y
+  aptget update -y
+  apt-get install sudo -y
   sudo apt install openssh-server git unzip zip net-tools -y
   sudo service ssh start
   sudo service ssh enable
