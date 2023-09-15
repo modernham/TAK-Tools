@@ -12,8 +12,7 @@ printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
   apt-get update -y
-  wget https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
-  wget -P /home/$usr/ https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
+  cp takinstall.sh /home/$usr/
   chmod +x /home/$usr/takinstall.sh
   chmod 777 /home/$usr/takinstall.sh
   sh -c "echo \"takusr ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
