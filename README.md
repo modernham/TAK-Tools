@@ -1,11 +1,6 @@
 
 # TAK Tools
-
 A (future) collection of tools and scripts for the purpose of automating the install, maintence and upgrading of TAK servers. 
-
-Current Tools:
-
-
 
 ## Current Tools
 ## One Line Docker/TAK Server Installer
