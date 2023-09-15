@@ -17,7 +17,7 @@ adduser DESIREDUSERNAME
 apt-get install wget
 ```
 
-Run as the root:
+**Run as the root:**
 
 ```bash
 wget -O - https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh | bash
