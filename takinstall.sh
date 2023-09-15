@@ -11,11 +11,11 @@ color danger 91m
 printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
+  apt-get update -y
   wget https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
   wget -P /home/$usr/ https://raw.githubusercontent.com/modernham/TAK-Tools/main/takinstall.sh
-  cp $(basename "$0") /home/$usr
-  chmod +x /home/$usr/$(basename $BASH_SOURCE)
-  chmod 777 /home/$usr/$(basename $BASH_SOURCE)
+  chmod +x /home/$usr/takinstall.sh
+  chmod 777 /home/$usr/takinstall.sh
   sh -c "echo \"takusr ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
   printf $success "User ${usr} added to sudoers\n";
   printf $info "Adding docker group\n";
@@ -24,7 +24,6 @@ if [ $UID -eq 0 ]; then
   printf $success "User ${usr} added to Docker group\n";
   printf $success "Switching to: ${usr}\n";
   printf $info "\nInstalling needed tools, and enabling SSH\n";
-  aptget update -y
   apt-get install sudo -y
   sudo apt install openssh-server git unzip zip net-tools -y
   sudo service ssh start
