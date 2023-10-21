@@ -86,4 +86,5 @@ printf $info "\nYou may also download them from your webrowser at: \n"
 printf $warning "http://${ip4}/ \n"
 printf $danger "Press CTRL+C to close this script and the webserver\n";
 sudo chmod 777 -R /home/${usr}/certs
+sudo chmod -R 777 /home/${usr}/certs
 python3 -m http.server 80 -d /home/${usr}/certs
