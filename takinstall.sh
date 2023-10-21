@@ -18,7 +18,7 @@ if [ $UID -eq 0 ]; then
   cp takinstall.sh /home/$usr/
   chmod +x /home/$usr/takinstall.sh
   chmod 777 /home/$usr/takinstall.sh
-  sh -c "echo \"takusr ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
+  sh -c "echo \"${usr} ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
   printf $success "User ${usr} added to sudoers\n";
   printf $info "Adding docker group\n";
   groupadd docker
