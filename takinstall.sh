@@ -8,6 +8,7 @@ color info 96m
 color success 92m
 color warning 93m
 color danger 91m
+export PATH=$PATH:/sbin
 printf $warning "\nPlease enter your username\n";
 read usr
 if [ $UID -eq 0 ]; then
